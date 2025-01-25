@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5fmyvgcthum"]
+
+[ext_resource type="Texture2D" uid="uid://drxc685871r3v" path="res://assets/ui/burbuja.png" id="1_2jvyj"]
+[ext_resource type="FontFile" uid="uid://c4sjjq6urnjb4" path="res://assets/fonts/Rowdy Typemachine 1 - Regular.otf" id="2_w3rg3"]
+
+[node name="Opcion" type="TextureButton"]
+scale = Vector2(1, 0.994646)
+texture_normal = ExtResource("1_2jvyj")
+
+[node name="OpctionTexto" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.604
+anchor_right = 0.87
+anchor_bottom = 0.835
+offset_left = -1.328
+offset_top = -3.72001
+offset_right = 1.50998
+offset_bottom = 0.699997
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_w3rg3")
+theme_override_font_sizes/font_size = 24
+text = "Esto es una opcion de prueba"
+horizontal_alignment = 1
+vertical_alignment = 1

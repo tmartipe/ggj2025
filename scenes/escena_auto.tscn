@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds6y463qv1n2x"]
+[gd_scene load_steps=4 format=3 uid="uid://ds6y463qv1n2x"]
 
 [ext_resource type="Texture2D" uid="uid://wiy0iv1jtutj" path="res://assets/escenas/auto.png" id="1_fuqv0"]
+[ext_resource type="Script" uid="uid://ci5p5vdf2io11" path="res://scripts/escena_auto.gd" id="1_kenpm"]
 [ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="2_kenpm"]
 
 [node name="EscenaAuto" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kenpm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -26,3 +28,5 @@ expand_mode = 1
 
 [node name="Control" parent="." instance=ExtResource("2_kenpm")]
 layout_mode = 1
+
+[editable path="Control"]
