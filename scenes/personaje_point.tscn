@@ -1,0 +1,95 @@
+[gd_scene load_steps=20 format=3 uid="uid://dg5tkgvhyegth"]
+
+[ext_resource type="Script" uid="uid://cs5akqmqrkh5y" path="res://scripts/personaje_point.gd" id="1_4p2h0"]
+[ext_resource type="Texture2D" uid="uid://638san2tp5oe" path="res://assets/samuraiRun/tile000.png" id="1_vle1i"]
+[ext_resource type="Texture2D" uid="uid://bad6qks1ppt5i" path="res://assets/samuraiRun/tile001.png" id="2_4p2h0"]
+[ext_resource type="Texture2D" uid="uid://b6csspef34fdh" path="res://assets/samuraiRun/tile002.png" id="3_qwph6"]
+[ext_resource type="Texture2D" uid="uid://o72j70emn3vv" path="res://assets/samuraiRun/tile003.png" id="4_p3dfl"]
+[ext_resource type="Texture2D" uid="uid://bv1mg2iu7waw2" path="res://assets/samuraiRun/tile004.png" id="5_4ho7j"]
+[ext_resource type="Texture2D" uid="uid://cjftb42gr4qht" path="res://assets/samuraiRun/tile005.png" id="6_2uiv1"]
+[ext_resource type="Texture2D" uid="uid://bj5qxhlni3wgq" path="res://assets/samuraiRun/tile006.png" id="7_ddhjl"]
+[ext_resource type="Texture2D" uid="uid://l24kad0onc0o" path="res://assets/samuraiRun/tile007.png" id="8_piptv"]
+[ext_resource type="Texture2D" uid="uid://meavdb868hmg" path="res://assets/samuraiRun/tile008.png" id="9_ld7jl"]
+[ext_resource type="Texture2D" uid="uid://bpswgxqwk06sl" path="res://assets/samuraiRun/tile009.png" id="10_mpddb"]
+[ext_resource type="Texture2D" uid="uid://c4fhdb851huvf" path="res://assets/samuraiRun/tile010.png" id="11_0loix"]
+[ext_resource type="Texture2D" uid="uid://cje006kytmlcn" path="res://assets/samuraiRun/tile011.png" id="12_po8hr"]
+[ext_resource type="Texture2D" uid="uid://dtquaxhpyv2r6" path="res://assets/samuraiRun/tile012.png" id="13_14jt2"]
+[ext_resource type="Texture2D" uid="uid://caiqkyddoygaq" path="res://assets/samuraiRun/tile013.png" id="14_5pav7"]
+[ext_resource type="Texture2D" uid="uid://mm5t1oop5eem" path="res://assets/samuraiRun/tile014.png" id="15_rmshp"]
+[ext_resource type="Texture2D" uid="uid://d2sv1c62lwmfd" path="res://assets/samuraiRun/tile015.png" id="16_a3uug"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_410c4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vle1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4p2h0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qwph6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p3dfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ho7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2uiv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ddhjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_piptv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ld7jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mpddb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0loix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_po8hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_14jt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5pav7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rmshp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_a3uug")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgui0"]
+size = Vector2(32, 40)
+
+[node name="PersonajePoint" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(1, 0)
+motion_mode = 1
+script = ExtResource("1_4p2h0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-4, -103)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_410c4")
+frame_progress = 0.788908
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(3, -20)
+shape = SubResource("RectangleShape2D_vgui0")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://chkjvqu4vw7vq"]
+
+[ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="1_07hsb"]
+[ext_resource type="Script" path="res://scripts/point_manager.gd" id="1_iye1x"]
+[ext_resource type="Texture2D" uid="uid://p6l3ug3how3t" path="res://assets/forrest3.png" id="2_h804m"]
+[ext_resource type="PackedScene" uid="uid://dg5tkgvhyegth" path="res://scenes/personaje_point.tscn" id="3_h804m"]
+
+[node name="EscenaPoint" type="Node"]
+script = ExtResource("1_iye1x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Forrest3" type="Sprite2D" parent="."]
+position = Vector2(161.75, 92.25)
+scale = Vector2(0.312988, 0.315104)
+texture = ExtResource("2_h804m")
+
+[node name="PersonajePoint" parent="." instance=ExtResource("3_h804m")]
+position = Vector2(61, 152)
+scale = Vector2(0.375, 0.375)
+
+[node name="Control" parent="." instance=ExtResource("1_07hsb")]

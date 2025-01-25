@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://b77w8es346fx7"]
+
+[ext_resource type="Texture2D" uid="uid://c5bt445inls2y" path="res://assets/knight_idle_01.png" id="1_0r06u"]
+[ext_resource type="Texture2D" uid="uid://delfjywl5ff8i" path="res://assets/knight_idle_02.png" id="2_ujqna"]
+[ext_resource type="Texture2D" uid="uid://duhnvs7lpup24" path="res://assets/knight_idle_03.png" id="3_2wp64"]
+[ext_resource type="Texture2D" uid="uid://dux8xdoh4p43d" path="res://assets/knight_idle_04.png" id="4_7mcdi"]
+[ext_resource type="Script" uid="uid://bip31ftyw2i6b" path="res://scripts/movimiento.gd" id="5_mp8ny"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26s02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0r06u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ujqna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2wp64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7mcdi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdkqf"]
+size = Vector2(12, 15)
+
+[node name="Caballero" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_26s02")
+animation = &"idle"
+frame_progress = 0.956933
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Node2D"]
+script = ExtResource("5_mp8ny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CharacterBody2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_fdkqf")
