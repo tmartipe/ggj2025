@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://chkjvqu4vw7vq"]
+[gd_scene load_steps=5 format=3 uid="uid://bgs47lsmbcsb2"]
 
-[ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="1_07hsb"]
-[ext_resource type="Script" path="res://scripts/point_manager.gd" id="1_iye1x"]
+[ext_resource type="PackedScene" uid="uid://dfeurufvkxv0r" path="res://scenes/interfaz_point.tscn" id="1_07hsb"]
+[ext_resource type="Script" uid="uid://bguumvncspqxg" path="res://scripts/point_manager.gd" id="1_iye1x"]
 [ext_resource type="Texture2D" uid="uid://p6l3ug3how3t" path="res://assets/forrest3.png" id="2_h804m"]
-[ext_resource type="PackedScene" uid="uid://dg5tkgvhyegth" path="res://scenes/personaje_point.tscn" id="3_h804m"]
+[ext_resource type="PackedScene" path="res://scenes/personaje_point.tscn" id="3_h804m"]
 
 [node name="EscenaPoint" type="Node"]
 script = ExtResource("1_iye1x")

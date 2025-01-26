@@ -1,0 +1,206 @@
+[gd_scene load_steps=6 format=3 uid="uid://cse0g8oyovsuh"]
+
+[ext_resource type="Texture2D" uid="uid://qf5u82lrkxa6" path="res://assets/ui/burbujapantallainicio.png" id="1_0ctdu"]
+[ext_resource type="Script" uid="uid://basdnl5xjuk8n" path="res://scenes/credits.gd" id="1_2fbfq"]
+[ext_resource type="Texture2D" uid="uid://oxcmcmfo22qu" path="res://assets/ui/burbuja.png" id="2_2fbfq"]
+[ext_resource type="FontFile" uid="uid://c4sjjq6urnjb4" path="res://assets/fonts/Rowdy Typemachine 1 - Regular.otf" id="3_8gwij"]
+[ext_resource type="Script" uid="uid://wptcesk5u8fv" path="res://scenes/return.gd" id="5_8gwij"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2fbfq")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_0ctdu")
+
+[node name="ContainerProgrammers" type="MarginContainer" parent="Fondo"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Fondo/ContainerProgrammers"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_2fbfq")
+stretch_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Fondo/ContainerProgrammers/TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 106.0
+offset_right = -46.0
+offset_bottom = 658.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("3_8gwij")
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Programadores
+
+
+
+Tomas Martinez
+
+Osvaldo Ramirez
+[/center]"
+
+[node name="ContainerDesigners" type="MarginContainer" parent="Fondo"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Fondo/ContainerDesigners"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_2fbfq")
+stretch_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Fondo/ContainerDesigners/TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 106.0
+offset_right = -46.0
+offset_bottom = 658.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("3_8gwij")
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Diseñadora
+
+
+
+Victoria Natalini
+[/center]"
+
+[node name="ContainerWriters" type="MarginContainer" parent="Fondo"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Fondo/ContainerWriters"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_2fbfq")
+stretch_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Fondo/ContainerWriters/TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 17.0
+offset_top = 106.0
+offset_right = -46.0
+offset_bottom = 658.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("3_8gwij")
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Guionistas
+
+
+
+Jose Isaias Gomez
+
+Tamara Sarrailh
+[/center]"
+
+[node name="ContainerMusic" type="MarginContainer" parent="Fondo"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Fondo/ContainerMusic"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_2fbfq")
+stretch_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Fondo/ContainerMusic/TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 106.0
+offset_right = -46.0
+offset_bottom = 658.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("3_8gwij")
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Música
+
+
+
+Onion
+[/center]"
+
+[node name="Return" type="Control" parent="Fondo"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_8gwij")
+
+[node name="Button" type="Button" parent="Fondo/Return"]
+layout_mode = 0
+offset_right = 1278.0
+offset_bottom = 716.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="Fondo/Return/Button" to="Fondo/Return" method="_on_button_pressed"]

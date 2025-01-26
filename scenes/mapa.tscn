@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://ke2nu0mwjiev"]
+[gd_scene load_steps=5 format=4 uid="uid://boy4jiff2rltx"]
 
 [ext_resource type="TileSet" uid="uid://dsq3nk2aqqmpk" path="res://assets/tilesets/tileSetExterior.tres" id="1_ekubr"]
-[ext_resource type="PackedScene" uid="uid://b77w8es346fx7" path="res://scenes/caballero.tscn" id="2_u1vf7"]
+[ext_resource type="PackedScene" uid="uid://cr14n7yviivdh" path="res://scenes/caballero.tscn" id="2_u1vf7"]
 [ext_resource type="PackedScene" uid="uid://cffmm5xxoa5ip" path="res://scenes/mapaGeneral/ui_viajar_collision.tscn" id="3_tfnl5"]
-[ext_resource type="PackedScene" uid="uid://chkjvqu4vw7vq" path="res://scenes/escena_point.tscn" id="4_nrd35"]
+[ext_resource type="PackedScene" uid="uid://bgs47lsmbcsb2" path="res://scenes/escena_point.tscn" id="4_nrd35"]
 
 [node name="Node2D" type="Node2D"]
 

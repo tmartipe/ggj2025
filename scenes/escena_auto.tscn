@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds6y463qv1n2x"]
+[gd_scene load_steps=3 format=3 uid="uid://bilcu4i0ayfyd"]
 
 [ext_resource type="Texture2D" uid="uid://wiy0iv1jtutj" path="res://assets/escenas/auto.png" id="1_fuqv0"]
-[ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="2_kenpm"]
+[ext_resource type="PackedScene" uid="uid://dfeurufvkxv0r" path="res://scenes/interfaz_point.tscn" id="2_kenpm"]
 
 [node name="EscenaAuto" type="Control"]
 layout_mode = 3
