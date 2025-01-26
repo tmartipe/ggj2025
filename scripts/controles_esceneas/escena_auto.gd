@@ -41,10 +41,13 @@ func _process(_delta):
 		canShowNextText = false
 		match textoIndex:
 			4:
-				get_tree().reload_current_scene()
+				fade_black.visible = true
+				var fadeBlackTween = create_tween()
+				fadeBlackTween.tween_property(fade_black, "modulate", Color(1,1,1,1), 3)
+				await fadeBlackTween.finished
+				get_tree().change_scene_to_file("res://scenes/escena_salon.tscn")
 			2:
 				await showTexto(textoEscena[textoIndex])
-				$Control.hide_arrow()
 				$Control.show_options(["Hugo"])
 			_:
 				showTexto(textoEscena[textoIndex])	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdtjdwob2tjnx"
-path="res://.godot/imported/salon.png-da7cd3030be9490470eb8bf4869b655b.ctex"
+uid="uid://4io7mp0kb36b"
+path="res://.godot/imported/salonnosilonnoburbujero.png-21774c9ddb693acd3255099b47dbdf0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/escenas/salon.png"
-dest_files=["res://.godot/imported/salon.png-da7cd3030be9490470eb8bf4869b655b.ctex"]
+source_file="res://assets/escenas/salon/salonnosilonnoburbujero.png"
+dest_files=["res://.godot/imported/salonnosilonnoburbujero.png-21774c9ddb693acd3255099b47dbdf0b.ctex"]
 
 [params]
 
