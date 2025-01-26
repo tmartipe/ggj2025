@@ -1,7 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfeurufvkxv0r"]
+[gd_scene load_steps=13 format=3 uid="uid://gah3w65krhi4"]
 
-[ext_resource type="FontFile" uid="uid://b63kghyr1ahbw" path="res://assets/fonts/m5x7.ttf" id="1_c684x"]
-[ext_resource type="Script" path="res://scenes/textLoader.gd" id="5_eyfn2"]
+[ext_resource type="PackedScene" uid="uid://c5fmyvgcthum" path="res://scenes/boton_opcion.tscn" id="1_18y3c"]
+[ext_resource type="Script" uid="uid://dwn6f2t1rgosi" path="res://scripts/interfaz_controler.gd" id="1_21lmy"]
+[ext_resource type="FontFile" uid="uid://c4sjjq6urnjb4" path="res://assets/fonts/Rowdy Typemachine 1 - Regular.otf" id="1_upnqd"]
+[ext_resource type="FontFile" uid="uid://c1ewm7g3gbqu6" path="res://assets/fonts/Rowdy Typemachine 2 - Italic.otf" id="2_whlg1"]
+[ext_resource type="FontFile" uid="uid://rq4m4php55bs" path="res://assets/fonts/Rowdy Typemachine 4 - Bold Italic.otf" id="3_18y3c"]
+[ext_resource type="FontFile" uid="uid://bx2a4b7drrajj" path="res://assets/fonts/Rowdy Typemachine 3 - Bold.otf" id="4_21lmy"]
+[ext_resource type="Script" uid="uid://thj1servwu5u" path="res://scripts/text_loader.gd" id="5_eyfn2"]
+[ext_resource type="Texture2D" uid="uid://cd4qb7wunmkx1" path="res://assets/portraits/hugo.png" id="6_whlg1"]
+[ext_resource type="Texture2D" uid="uid://bawqj4xs8jyi5" path="res://assets/ui/down.png" id="9_eyfn2"]
+
+[sub_resource type="Animation" id="Animation_r6dk7"]
+resource_name = "arrowBlink"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.98),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8whxq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a43a3"]
+_data = {
+&"RESET": SubResource("Animation_8whxq"),
+&"arrowBlink": SubResource("Animation_r6dk7")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,32 +55,100 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_21lmy")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.722
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -200.0
+offset_top = 0.159973
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Text" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.725
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 14.0
-offset_right = -23.0
-offset_bottom = -20.0
+anchor_left = 0.02
+anchor_top = 0.12
+anchor_right = 0.711
+anchor_bottom = 0.78
+offset_left = 0.399998
+offset_right = -0.0800171
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("1_c684x")
-theme_override_font_sizes/normal_font_size = 0
+theme_override_fonts/normal_font = ExtResource("1_upnqd")
+theme_override_fonts/italics_font = ExtResource("2_whlg1")
+theme_override_fonts/bold_italics_font = ExtResource("3_18y3c")
+theme_override_fonts/bold_font = ExtResource("4_21lmy")
+theme_override_font_sizes/normal_font_size = 40
 text = "texto prueba"
 scroll_active = false
 scroll_following = true
 script = ExtResource("5_eyfn2")
+
+[node name="Portrait" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+anchor_left = 0.723
+anchor_top = 0.399
+anchor_right = 1.002
+anchor_bottom = 1.0
+offset_left = -0.440063
+offset_top = -0.279999
+offset_right = -0.560059
+offset_bottom = 3.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("6_whlg1")
+
+[node name="ChoicesContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.165
+anchor_top = 0.247
+anchor_right = 0.835
+anchor_bottom = 0.497
+offset_left = -151.2
+offset_top = 132.16
+offset_right = -150.8
+offset_bottom = 132.16
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Opcion1" parent="ChoicesContainer" instance=ExtResource("1_18y3c")]
+visible = false
+layout_mode = 2
+
+[node name="Opcion2" parent="ChoicesContainer" instance=ExtResource("1_18y3c")]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_eyfn2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_a43a3")
+}
+autoplay = "arrowBlink"
+
+[connection signal="textFinished" from="Panel/Text" to="." method="_on_text_text_finished"]
+[connection signal="pressed" from="ChoicesContainer/Opcion1" to="." method="_on_opcion_1_pressed"]
+[connection signal="pressed" from="ChoicesContainer/Opcion2" to="." method="_on_opcion_2_pressed"]

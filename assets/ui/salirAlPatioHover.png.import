@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drxc685871r3v"
-path="res://.godot/imported/burbuja.png-19588770db9797d2d9f732eead9872eb.ctex"
+uid="uid://b0g7bv3umbiy6"
+path="res://.godot/imported/salirAlPatioHover.png-94fb46bca0bd8db0b4f8ac7330b9e9ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/burbuja.png"
-dest_files=["res://.godot/imported/burbuja.png-19588770db9797d2d9f732eead9872eb.ctex"]
+source_file="res://assets/ui/salirAlPatioHover.png"
+dest_files=["res://.godot/imported/salirAlPatioHover.png-94fb46bca0bd8db0b4f8ac7330b9e9ab.ctex"]
 
 [params]
 

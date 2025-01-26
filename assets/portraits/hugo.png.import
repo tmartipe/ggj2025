@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drxc685871r3v"
-path="res://.godot/imported/burbuja.png-19588770db9797d2d9f732eead9872eb.ctex"
+uid="uid://cd4qb7wunmkx1"
+path="res://.godot/imported/hugo.png-aa41665f70153dcdf88700c19c62dfc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/burbuja.png"
-dest_files=["res://.godot/imported/burbuja.png-19588770db9797d2d9f732eead9872eb.ctex"]
+source_file="res://assets/portraits/hugo.png"
+dest_files=["res://.godot/imported/hugo.png-aa41665f70153dcdf88700c19c62dfc1.ctex"]
 
 [params]
 

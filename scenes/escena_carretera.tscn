@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0r2ym1ppnmtl"]
+
+[ext_resource type="Script" uid="uid://dv8fqa7sq0imt" path="res://scripts/controles_esceneas/escena_carretera.gd" id="1_w5gty"]
+[ext_resource type="Texture2D" uid="uid://xpu4aso1no7m" path="res://assets/escenas/arizona-highway-4172480836.jpg" id="2_m6qka"]
+[ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="3_m6qka"]
+
+[node name="EscenaCarretera" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w5gty")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_m6qka")
+expand_mode = 1
+
+[node name="Control" parent="." instance=ExtResource("3_m6qka")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+
+[node name="Text" parent="Control/Panel" index="0"]
+text = ""
+
+[node name="Portrait" parent="Control" index="1"]
+texture = null
+
+[node name="FadeBlack" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[editable path="Control"]

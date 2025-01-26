@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drxc685871r3v"
-path="res://.godot/imported/burbuja.png-19588770db9797d2d9f732eead9872eb.ctex"
+uid="uid://cdtjdwob2tjnx"
+path="res://.godot/imported/salon.png-f7a5631034d9ef7cb61adf897542c194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/burbuja.png"
-dest_files=["res://.godot/imported/burbuja.png-19588770db9797d2d9f732eead9872eb.ctex"]
+source_file="res://assets/escenas/salon/salon.png"
+dest_files=["res://.godot/imported/salon.png-f7a5631034d9ef7cb61adf897542c194.ctex"]
 
 [params]
 

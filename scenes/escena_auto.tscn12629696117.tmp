@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds6y463qv1n2x"]
+[gd_scene load_steps=5 format=3 uid="uid://ds6y463qv1n2x"]
 
 [ext_resource type="Texture2D" uid="uid://wiy0iv1jtutj" path="res://assets/escenas/auto.png" id="1_fuqv0"]
-[ext_resource type="Script" uid="uid://ci5p5vdf2io11" path="res://scripts/controles_esceneas/escena_auto.gd" id="1_kenpm"]
+[ext_resource type="Script" uid="uid://ci5p5vdf2io11" path="res://scripts/escena_auto.gd" id="1_kenpm"]
 [ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="2_kenpm"]
+[ext_resource type="PackedScene" uid="uid://dslxns4fqplqu" path="res://scenes/fade_black.tscn" id="4_3c5lk"]
 
 [node name="EscenaAuto" type="Control"]
 layout_mode = 3
@@ -32,15 +33,8 @@ layout_mode = 1
 [node name="Text" parent="Control/Panel" index="0"]
 text = ""
 
-[node name="FadeBlack" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[connection signal="pressed" from="Control/ChoicesContainer/Opcion1" to="." method="_on_opcion_1_pressed"]
+[node name="FadeBlack" parent="." instance=ExtResource("4_3c5lk")]
+layout_mode = 0
+anchors_preset = 0
 
 [editable path="Control"]
