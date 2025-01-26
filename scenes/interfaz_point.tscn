@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://gah3w65krhi4"]
+[gd_scene load_steps=13 format=3 uid="uid://gah3w65krhi4"]
 
 [ext_resource type="PackedScene" uid="uid://c5fmyvgcthum" path="res://scenes/boton_opcion.tscn" id="1_18y3c"]
 [ext_resource type="Script" uid="uid://dwn6f2t1rgosi" path="res://scripts/interfaz_controler.gd" id="1_21lmy"]
@@ -9,6 +9,44 @@
 [ext_resource type="Script" uid="uid://thj1servwu5u" path="res://scripts/text_loader.gd" id="5_eyfn2"]
 [ext_resource type="Texture2D" uid="uid://cd4qb7wunmkx1" path="res://assets/portraits/hugo.png" id="6_whlg1"]
 [ext_resource type="Texture2D" uid="uid://bawqj4xs8jyi5" path="res://assets/ui/down.png" id="9_eyfn2"]
+
+[sub_resource type="Animation" id="Animation_r6dk7"]
+resource_name = "arrowBlink"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.98),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8whxq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a43a3"]
+_data = {
+&"RESET": SubResource("Animation_8whxq"),
+&"arrowBlink": SubResource("Animation_r6dk7")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -104,5 +142,13 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("9_eyfn2")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_a43a3")
+}
+autoplay = "arrowBlink"
+
+[connection signal="textFinished" from="Panel/Text" to="." method="_on_text_text_finished"]
 [connection signal="pressed" from="ChoicesContainer/Opcion1" to="." method="_on_opcion_1_pressed"]
 [connection signal="pressed" from="ChoicesContainer/Opcion2" to="." method="_on_opcion_2_pressed"]

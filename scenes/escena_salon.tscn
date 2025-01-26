@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://c46f86be3kaif"]
+
+[ext_resource type="Script" uid="uid://ikda83bj80br" path="res://scripts/controles_esceneas/escena_salon.gd" id="1_0d3py"]
+[ext_resource type="Texture2D" uid="uid://4io7mp0kb36b" path="res://assets/escenas/salon/salonnosilonnoburbujero.png" id="2_g008k"]
+[ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="3_0s4s5"]
+[ext_resource type="Texture2D" uid="uid://b4oyfy0i27qs8" path="res://assets/escenas/salon/burbujero.png" id="3_4ljln"]
+[ext_resource type="Texture2D" uid="uid://bidone1fjx2vo" path="res://assets/escenas/salon/salonsillon.png" id="4_0s4s5"]
+[ext_resource type="Texture2D" uid="uid://d3b7k16olbqyr" path="res://assets/escenas/salon/sillonHover.png" id="4_jsblk"]
+[ext_resource type="Texture2D" uid="uid://b68pj6wevhfjn" path="res://assets/escenas/salon/burbujeroHover.png" id="4_ytu1y"]
+[ext_resource type="Script" uid="uid://7kyp2hbo5gqp" path="res://scenes/sillon.gd" id="5_g008k"]
+[ext_resource type="Script" uid="uid://4q575sgcabr7" path="res://scripts/burbujero.gd" id="5_ytu1y"]
+[ext_resource type="Texture2D" uid="uid://cm5qc4mvs7rlr" path="res://assets/ui/salir.png" id="10_mrcmm"]
+[ext_resource type="Texture2D" uid="uid://b0g7bv3umbiy6" path="res://assets/ui/salirAlPatioHover.png" id="11_goqpv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0d3py")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g008k")
+
+[node name="Burbujero" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.477
+anchor_top = 0.55
+anchor_right = 0.623
+anchor_bottom = 0.842
+offset_left = 0.439941
+offset_right = 0.559937
+offset_bottom = -0.23999
+texture_normal = ExtResource("3_4ljln")
+texture_hover = ExtResource("4_ytu1y")
+script = ExtResource("5_ytu1y")
+
+[node name="Sillon" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.455
+anchor_top = 0.431
+anchor_right = 0.936
+anchor_bottom = 0.872
+offset_left = 16.6
+offset_top = -92.32
+offset_right = 34.9199
+offset_bottom = -6.84003
+texture_normal = ExtResource("4_0s4s5")
+texture_hover = ExtResource("4_jsblk")
+script = ExtResource("5_g008k")
+
+[node name="Control" parent="." instance=ExtResource("3_0s4s5")]
+layout_mode = 1
+
+[node name="Text" parent="Control/Panel" index="0"]
+text = ""
+
+[node name="FadeBlack" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SalirAlPatio" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -95.0
+offset_bottom = 95.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("10_mrcmm")
+texture_hover = ExtResource("11_goqpv")
+
+[connection signal="pressed" from="Burbujero" to="." method="_on_burbujero_pressed"]
+[connection signal="pressed" from="Burbujero" to="Burbujero" method="_on_pressed"]
+[connection signal="pressed" from="Sillon" to="Sillon" method="_on_pressed"]
+[connection signal="pressed" from="Control/ChoicesContainer/Opcion1" to="." method="_on_opcion_1_pressed"]
+[connection signal="pressed" from="Control/ChoicesContainer/Opcion2" to="." method="_on_opcion_2_pressed"]
+[connection signal="pressed" from="SalirAlPatio" to="." method="_on_salir_al_patio_pressed"]
+
+[editable path="Control"]

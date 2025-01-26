@@ -7,7 +7,7 @@
 scale = Vector2(1, 0.994646)
 texture_normal = ExtResource("1_2jvyj")
 
-[node name="OpctionTexto" type="Label" parent="."]
+[node name="Texto" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.064

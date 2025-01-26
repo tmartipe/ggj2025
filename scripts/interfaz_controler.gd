@@ -1,24 +1,18 @@
 extends Control
 
 @onready var portrait = $Portrait
+@onready var arrow = $TextureRect
 
 func show_options(options: Array):
 	for i in range(0, options.size()):
 		var node = $ChoicesContainer.get_children()[i]
 		node.visible = true
 		node.get_child(0).text = options[i]
-		
-func show_arrow():
-	pass
+		node.mouse_filter = MOUSE_FILTER_STOP
 
 func hide_options():
 	for child in $ChoicesContainer.get_children():
 		child.visible = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,6 +26,11 @@ func _process(delta):
 func _on_opcion_1_pressed():
 	hide_options()
 
-
 func _on_opcion_2_pressed():
 	hide_options()
+
+func show_arrow():
+	arrow.visible = true
+
+func hide_arrow():
+	arrow.visible = false
