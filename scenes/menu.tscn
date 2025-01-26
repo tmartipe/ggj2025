@@ -1,0 +1,181 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpko2exs8brg8"]
+
+[ext_resource type="Script" uid="uid://u3lipawicdnj" path="res://scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://qf5u82lrkxa6" path="res://assets/ui/burbujapantallainicio.png" id="2_vjb58"]
+[ext_resource type="FontFile" uid="uid://c4sjjq6urnjb4" path="res://assets/fonts/Rowdy Typemachine 1 - Regular.otf" id="3_con2f"]
+[ext_resource type="Texture2D" uid="uid://oxcmcmfo22qu" path="res://assets/ui/burbuja.png" id="3_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://b6i1xucq425k" path="res://assets/ui/burbuja2.png" id="4_v86rl"]
+[ext_resource type="AudioStream" uid="uid://bb35qfcc4h6jp" path="res://audio/pop.wav" id="5_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://bkjq0q6vn1tve" path="res://assets/ui/burbuja1.png" id="5_13sgg"]
+
+[sub_resource type="Animation" id="Animation_i6lef"]
+resource_name = "animation"
+length = 0.3
+loop_mode = 2
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1.93187, 2.37841, 2.2974),
+"update": 1,
+"values": [ExtResource("3_mhnvy"), ExtResource("4_v86rl"), ExtResource("5_13sgg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.189825),
+"transitions": PackedFloat32Array(1, 2.2974),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v86rl"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(2.2974, 1, 1),
+"update": 1,
+"values": [ExtResource("3_mhnvy"), ExtResource("5_13sgg"), ExtResource("4_v86rl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2.21914, 2.63902),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70i5f"]
+_data = {
+&"RESET": SubResource("Animation_v86rl"),
+&"animation": SubResource("Animation_i6lef")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rerr")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vjb58")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.526
+anchor_right = 0.5
+anchor_bottom = 0.526
+offset_left = -250.0
+offset_top = -269.032
+offset_right = 250.0
+offset_bottom = 199.968
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Play" type="TextureButton" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture_normal = ExtResource("3_mhnvy")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Play"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.52
+anchor_right = 0.984
+anchor_bottom = 0.69
+offset_left = -1.0
+offset_top = 16.4
+offset_right = 7.0
+offset_bottom = 36.8
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_con2f")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+horizontal_alignment = 1
+
+[node name="AnimationButton" type="AnimationPlayer" parent="ColorRect/VBoxContainer/Play"]
+libraries = {
+&"": SubResource("AnimationLibrary_70i5f")
+}
+
+[node name="Quit" type="TextureButton" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.0
+action_mode = 0
+texture_normal = ExtResource("3_mhnvy")
+stretch_mode = 0
+flip_h = true
+flip_v = true
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.333
+anchor_right = 1.02
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -40.94
+offset_right = -6.10352e-05
+offset_bottom = 9.95999
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_con2f")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationButton" type="AnimationPlayer" parent="ColorRect/VBoxContainer/Quit"]
+libraries = {
+&"": SubResource("AnimationLibrary_70i5f")
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
+[node name="PressButton" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(432, 354)
+stream = ExtResource("5_4ytvr")
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
