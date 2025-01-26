@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GGJ2025"
-run/main_scene="res://scenes/mapa.tscn"
+run/main_scene="uid://byrp3ww64q37f"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

@@ -18,7 +18,7 @@ func _on_play_pressed() -> void:
 	playAnimation.play("animation")
 	timer.start()
 	await timer.timeout
-	get_tree().change_scene_to_file("res://scenes/escena_auto.tscn") #reemplazar por la escena del juego
+	get_tree().change_scene_to_file("res://scenes/escena_carretera.tscn")
 
 func _on_quit_pressed() -> void:
 	pressSound.play()

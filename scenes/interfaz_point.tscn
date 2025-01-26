@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://gah3w65krhi4"]
+[gd_scene load_steps=15 format=3 uid="uid://gah3w65krhi4"]
 
-[ext_resource type="PackedScene" uid="uid://c5fmyvgcthum" path="res://scenes/boton_opcion.tscn" id="1_18y3c"]
 [ext_resource type="Script" uid="uid://dwn6f2t1rgosi" path="res://scripts/interfaz_controler.gd" id="1_21lmy"]
 [ext_resource type="FontFile" uid="uid://c4sjjq6urnjb4" path="res://assets/fonts/Rowdy Typemachine 1 - Regular.otf" id="1_upnqd"]
 [ext_resource type="FontFile" uid="uid://c1ewm7g3gbqu6" path="res://assets/fonts/Rowdy Typemachine 2 - Italic.otf" id="2_whlg1"]
@@ -8,7 +7,25 @@
 [ext_resource type="FontFile" uid="uid://bx2a4b7drrajj" path="res://assets/fonts/Rowdy Typemachine 3 - Bold.otf" id="4_21lmy"]
 [ext_resource type="Script" uid="uid://thj1servwu5u" path="res://scripts/text_loader.gd" id="5_eyfn2"]
 [ext_resource type="Texture2D" uid="uid://cd4qb7wunmkx1" path="res://assets/portraits/hugo.png" id="6_whlg1"]
+[ext_resource type="AudioStream" uid="uid://dkopeb6fkrph2" path="res://audio/pluma.wav" id="7_8whxq"]
+[ext_resource type="PackedScene" uid="uid://c12g2bruy7t" path="res://scenes/botonBurbuja.tscn" id="8_eyfn2"]
 [ext_resource type="Texture2D" uid="uid://bawqj4xs8jyi5" path="res://assets/ui/down.png" id="9_eyfn2"]
+[ext_resource type="AudioStream" uid="uid://bb35qfcc4h6jp" path="res://audio/pop.wav" id="10_r6dk7"]
+
+[sub_resource type="Animation" id="Animation_8whxq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_r6dk7"]
 resource_name = "arrowBlink"
@@ -25,21 +42,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_8whxq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a43a3"]
@@ -89,6 +91,11 @@ scroll_active = false
 scroll_following = true
 script = ExtResource("5_eyfn2")
 
+[node name="TextSFX" type="AudioStreamPlayer2D" parent="Panel/Text"]
+position = Vector2(-26, -24)
+stream = ExtResource("7_8whxq")
+volume_db = 8.0
+
 [node name="Portrait" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
@@ -119,11 +126,11 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Opcion1" parent="ChoicesContainer" instance=ExtResource("1_18y3c")]
+[node name="Opcion1" parent="ChoicesContainer" instance=ExtResource("8_eyfn2")]
 visible = false
 layout_mode = 2
 
-[node name="Opcion2" parent="ChoicesContainer" instance=ExtResource("1_18y3c")]
+[node name="Opcion2" parent="ChoicesContainer" instance=ExtResource("8_eyfn2")]
 visible = false
 layout_mode = 2
 
@@ -148,6 +155,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_a43a3")
 }
 autoplay = "arrowBlink"
+
+[node name="PressButton" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(432, 354)
+stream = ExtResource("10_r6dk7")
 
 [connection signal="textFinished" from="Panel/Text" to="." method="_on_text_text_finished"]
 [connection signal="pressed" from="ChoicesContainer/Opcion1" to="." method="_on_opcion_1_pressed"]

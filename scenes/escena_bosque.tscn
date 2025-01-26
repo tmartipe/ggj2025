@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://u1jqgntcrhge"]
+
+[ext_resource type="Script" uid="uid://ck6ddrhl2nrro" path="res://scripts/controles_esceneas/escena_bosque.gd" id="1_rxujn"]
+[ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="2_dw4hr"]
+[ext_resource type="Texture2D" uid="uid://5nh8cgu3vfna" path="res://assets/escenas/patio/patiotrasero.png" id="2_wluml"]
+[ext_resource type="Texture2D" uid="uid://ccn20e5g6nlx4" path="res://assets/escenas/niebla3.png" id="3_dum34"]
+
+[node name="EscenaBosque" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rxujn")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wluml")
+
+[node name="Niebla" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_dum34")
+
+[node name="Control" parent="." instance=ExtResource("2_dw4hr")]
+layout_mode = 1
+
+[node name="Text" parent="Control/Panel" index="0"]
+text = ""
+
+[node name="FadeBlack" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Control/ChoicesContainer/Opcion1" to="." method="_on_opcion_1_pressed"]
+[connection signal="pressed" from="Control/ChoicesContainer/Opcion2" to="." method="_on_opcion_2_pressed"]
+
+[editable path="Control"]

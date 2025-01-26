@@ -1,4 +1,92 @@
-[gd_scene format=3 uid="uid://pvwcx6ky6vju"]
+[gd_scene load_steps=16 format=3 uid="uid://dp1ccf113gche"]
+
+[ext_resource type="Script" uid="uid://bkj7x2l4x0swf" path="res://scripts/controles_esceneas/escena_patio.gd" id="1_6id2h"]
+[ext_resource type="Texture2D" uid="uid://5nh8cgu3vfna" path="res://assets/escenas/patio/patiotrasero.png" id="1_x5lfu"]
+[ext_resource type="Texture2D" uid="uid://cufutucxx0j3x" path="res://assets/escenas/niebla4.png" id="2_6id2h"]
+[ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="3_yg7hq"]
+[ext_resource type="Texture2D" uid="uid://d4dxtb8eribcs" path="res://assets/escenas/patio/espejitohover.png" id="4_bto6p"]
+[ext_resource type="Texture2D" uid="uid://cnic5jgto143p" path="res://assets/escenas/patio/piedrita.png" id="5_4cnd4"]
+[ext_resource type="Texture2D" uid="uid://cp2ansntn1qa8" path="res://assets/escenas/patio/espejito.png" id="6_bto6p"]
+[ext_resource type="Texture2D" uid="uid://x4qct0pqbjjm" path="res://assets/escenas/patio/reflejoLucy.png" id="8_0ihfu"]
+[ext_resource type="Script" uid="uid://cadsyg6p073hr" path="res://scripts/espejo_mano.gd" id="8_adnci"]
+[ext_resource type="Texture2D" uid="uid://c1h2i6r6s554g" path="res://assets/escenas/patio/mascaraNoReflejo.png" id="9_rjpxn"]
+[ext_resource type="Texture2D" uid="uid://bhxwdqd52uuhc" path="res://assets/escenas/patio/espejoSinNada.png" id="10_adnci"]
+[ext_resource type="AudioStream" uid="uid://cp1b303nhecn2" path="res://audio/girl-laugh-6689.mp3" id="12_8re7s"]
+
+[sub_resource type="Animation" id="Animation_vt5mw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+
+[sub_resource type="Animation" id="Animation_0ihfu"]
+resource_name = "subirEspejo"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.29617, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [100.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_lucy"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rjpxn"]
+_data = {
+&"RESET": SubResource("Animation_vt5mw"),
+&"subirEspejo": SubResource("Animation_0ihfu")
+}
 
 [node name="EscenaPatio" type="Control"]
 layout_mode = 3
@@ -7,3 +95,116 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6id2h")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_x5lfu")
+
+[node name="Espejito" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 477.0
+offset_right = 619.0
+offset_bottom = 562.0
+disabled = true
+texture_normal = ExtResource("6_bto6p")
+texture_hover = ExtResource("4_bto6p")
+
+[node name="Piedra" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 493.0
+offset_right = 565.0
+offset_bottom = 578.0
+texture_normal = ExtResource("5_4cnd4")
+
+[node name="Niebla" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("2_6id2h")
+
+[node name="Control" parent="." instance=ExtResource("3_yg7hq")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+
+[node name="Text" parent="Control/Panel" index="0"]
+text = ""
+
+[node name="FadeBlack" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="EspejoMano" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 720.0
+offset_right = 3840.0
+offset_bottom = 2880.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_adnci")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="EspejoMano"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -339.0
+offset_right = 216.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("8_0ihfu")
+texture_progress = ExtResource("9_rjpxn")
+
+[node name="MarcoEspejo" type="TextureRect" parent="EspejoMano"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -360.0
+offset_right = 244.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_adnci")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EspejoMano"]
+libraries = {
+&"": SubResource("AnimationLibrary_rjpxn")
+}
+
+[node name="GirlLaugh" type="AudioStreamPlayer2D" parent="EspejoMano"]
+stream = ExtResource("12_8re7s")
+volume_db = 6.648
+
+[connection signal="pressed" from="Espejito" to="." method="_on_espejito_pressed"]
+[connection signal="pressed" from="Piedra" to="." method="_on_piedra_pressed"]
+[connection signal="pressed" from="Control/ChoicesContainer/Opcion1" to="." method="_on_opcion_1_pressed"]
+[connection signal="pressed" from="Control/ChoicesContainer/Opcion2" to="." method="_on_opcion_2_pressed"]
+
+[editable path="Control"]

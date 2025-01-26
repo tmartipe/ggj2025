@@ -2,6 +2,7 @@ extends Control
 
 @onready var fade_black = $FadeBlack
 @onready var text = $Control/Panel/Text
+@onready var auto_sfx = $AutoSFX
 
 const HUGO_PORTRAIT: = preload("res://assets/portraits/hugo.png")
 const MEDICA_PORTRAIT = preload("res://assets/portraits/medica.png")
@@ -15,8 +16,9 @@ var textoIndex = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	auto_sfx.play()
 	var fadeBlackTween = create_tween()
-	fadeBlackTween.tween_property(fade_black, "modulate", Color(1,1,1,0), 3)
+	fadeBlackTween.tween_property(fade_black, "modulate", Color(1,1,1,0), 1)
 	await fadeBlackTween.finished
 	fadeInText()
 
@@ -35,14 +37,14 @@ func fadeOutScene():
 
 func fadeInText():
 	var fadeInTween = create_tween()
-	fadeInTween.tween_property($Control, "modulate", Color(1,1,1,1), 2)
+	fadeInTween.tween_property($Control, "modulate", Color(1,1,1,1), 1)
 	changePortrait(MEDICA_PORTRAIT)
 	await fadeInTween.finished
 	showTexto(textoEscena[textoIndex])
 
 func showTexto(string):
 	$Control.hide_arrow()
-	text.loadText(string)
+	text.loadText(string, "MEDICA")
 	await text.textFinished
 	$Control.show_arrow()
 	textoIndex += 1

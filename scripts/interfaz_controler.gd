@@ -2,6 +2,7 @@ extends Control
 
 @onready var portrait = $Portrait
 @onready var arrow = $TextureRect
+@onready var press_button = $PressButton
 
 func show_options(options: Array):
 	for i in range(0, options.size()):
@@ -22,15 +23,24 @@ func _process(delta):
 		show_options(["Hugo"])
 	pass
 
-
-func _on_opcion_1_pressed():
-	hide_options()
-
-func _on_opcion_2_pressed():
-	hide_options()
-
 func show_arrow():
 	arrow.visible = true
 
 func hide_arrow():
 	arrow.visible = false
+
+
+func _on_opcion_1_pressed():
+	$ChoicesContainer/Opcion1/AnimationButton.play("animation")
+	press_button.play()
+	await $ChoicesContainer/Opcion1/AnimationButton.animation_finished
+	hide_options()
+	$ChoicesContainer/Opcion1/AnimationButton.play("reset")
+
+
+func _on_opcion_2_pressed():
+	$ChoicesContainer/Opcion2/AnimationButton.play("animation")
+	press_button.play()
+	await $ChoicesContainer/Opcion2/AnimationButton.animation_finished
+	hide_options()
+	$ChoicesContainer/Opcion2/AnimationButton.play("reset")

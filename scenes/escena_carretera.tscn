@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0r2ym1ppnmtl"]
+[gd_scene load_steps=6 format=3 uid="uid://cfmb3pa2tkshm"]
 
 [ext_resource type="Script" uid="uid://dv8fqa7sq0imt" path="res://scripts/controles_esceneas/escena_carretera.gd" id="1_w5gty"]
-[ext_resource type="Texture2D" uid="uid://xpu4aso1no7m" path="res://assets/escenas/arizona-highway-4172480836.jpg" id="2_m6qka"]
+[ext_resource type="Texture2D" uid="uid://d17e2aa1c7kr3" path="res://assets/escenas/arizona-highway-4172480836.png" id="2_m6qka"]
 [ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="3_m6qka"]
+[ext_resource type="AudioStream" uid="uid://dephqd2kc6kw5" path="res://audio/auto.mp3" id="4_v1wy2"]
+[ext_resource type="AudioStream" uid="uid://cj7b03prr7dtk" path="res://audio/escena_carretera.mp3" id="5_igaw6"]
 
 [node name="EscenaCarretera" type="Control"]
 layout_mode = 3
@@ -30,6 +32,9 @@ layout_mode = 1
 [node name="Text" parent="Control/Panel" index="0"]
 text = ""
 
+[node name="TextSFX" parent="Control/Panel/Text" index="1"]
+volume_db = 4.0
+
 [node name="Portrait" parent="Control" index="1"]
 texture = null
 
@@ -41,5 +46,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AutoSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_v1wy2")
+parameters/looping = false
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_igaw6")
+volume_db = 8.0
+autoplay = true
 
 [editable path="Control"]

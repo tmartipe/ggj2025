@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xpu4aso1no7m"
-path="res://.godot/imported/arizona-highway-4172480836.jpg-e0aa8f4dcd7e03bed386394b0b00349d.ctex"
+uid="uid://cd7kp4oeyqfsk"
+path="res://.godot/imported/burbujeroSinBurbuja.png-83f53721aaf430db0e99b6c9ed30d77b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/escenas/arizona-highway-4172480836.jpg"
-dest_files=["res://.godot/imported/arizona-highway-4172480836.jpg-e0aa8f4dcd7e03bed386394b0b00349d.ctex"]
+source_file="res://assets/escenas/salon/burbujeroSinBurbuja.png"
+dest_files=["res://.godot/imported/burbujeroSinBurbuja.png-83f53721aaf430db0e99b6c9ed30d77b.ctex"]
 
 [params]
 
