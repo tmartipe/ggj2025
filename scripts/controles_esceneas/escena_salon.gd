@@ -14,6 +14,7 @@ func _ready():
 	await fadeBlackTween.finished
 	fade_black.visible = false
 	fadeInText()
+	$BurbujeroMano/Burbuja.visible = false
 
 func _process(_delta):
 	if Input.is_action_pressed("accion") and canShowNextText:
@@ -43,7 +44,7 @@ func fadeInText():
 
 func showTexto(string):
 	$Control.hide_arrow()
-	text.loadText(string)
+	text.loadText(string, "HUGO")
 	await text.textFinished
 	$Control.show_arrow()
 	textoIndex += 1

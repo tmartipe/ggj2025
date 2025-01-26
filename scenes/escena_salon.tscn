@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d3b7k16olbqyr" path="res://assets/escenas/salon/sillonHover.png" id="4_jsblk"]
 [ext_resource type="Texture2D" uid="uid://b68pj6wevhfjn" path="res://assets/escenas/salon/burbujeroHover.png" id="4_ytu1y"]
 [ext_resource type="Script" uid="uid://7kyp2hbo5gqp" path="res://scenes/sillon.gd" id="5_g008k"]
-[ext_resource type="Script" path="res://scripts/burbujero.gd" id="5_ytu1y"]
+[ext_resource type="Script" uid="uid://4q575sgcabr7" path="res://scripts/burbujero.gd" id="5_ytu1y"]
 [ext_resource type="Texture2D" uid="uid://cufutucxx0j3x" path="res://assets/escenas/niebla4.png" id="9_htkup"]
 [ext_resource type="Texture2D" uid="uid://cm5qc4mvs7rlr" path="res://assets/ui/salir.png" id="10_mrcmm"]
 [ext_resource type="Texture2D" uid="uid://b0g7bv3umbiy6" path="res://assets/ui/salirAlPatioHover.png" id="11_goqpv"]
@@ -19,6 +19,69 @@
 [ext_resource type="Texture2D" uid="uid://be7hihp6r83p2" path="res://assets/escenas/salon/hugohaciendolaburbuja (2).png" id="16_htkup"]
 [ext_resource type="AudioStream" uid="uid://bb35qfcc4h6jp" path="res://audio/pop.wav" id="17_wle00"]
 [ext_resource type="AudioStream" uid="uid://c715cu1h0qjju" path="res://audio/balloon-pop-48030.mp3" id="18_htkup"]
+
+[sub_resource type="Animation" id="Animation_hhqk8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burbujero:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_nuoga")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burbuja:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_ts0ce")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Burbuja:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(257, 150)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Burbuja:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Burbuja:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_qac87"]
 resource_name = "burbujear"
@@ -71,56 +134,17 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_hhqk8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Burbujero:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Burbuja:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.533333),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_nuoga")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Burbuja:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("14_ts0ce")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Burbuja:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(257, 150)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Burbuja:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_osfon"]
@@ -241,7 +265,7 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Texto" parent="BurbujeroMano/TirarBurbujasBoton" index="0"]
-text = "Explotar burbuja"
+text = "Tirar burbuja"
 
 [node name="Burbujero" type="TextureRect" parent="BurbujeroMano"]
 layout_mode = 1
@@ -263,10 +287,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -383.0
-offset_top = -210.0
-offset_right = -110.0
-offset_bottom = 33.0
+offset_left = 257.0
+offset_top = 150.0
+offset_right = 530.0
+offset_bottom = 393.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("14_ts0ce")
@@ -278,7 +302,7 @@ libraries = {
 
 [node name="BaloonPop" type="AudioStreamPlayer2D" parent="BurbujeroMano"]
 stream = ExtResource("18_htkup")
-volume_db = 19.338
+volume_db = 5.0
 
 [node name="PressButton" type="AudioStreamPlayer2D" parent="BurbujeroMano"]
 position = Vector2(432, 354)

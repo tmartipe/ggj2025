@@ -58,5 +58,14 @@ func _on_opcion_1_pressed():
 
 func _on_opcion_2_pressed():
 	if $Control/ChoicesContainer/Opcion2/Texto.text == "Palpar el piso con las manos":
-		$Niebla.texture = NIEBLA_2
-		showTexto("¡Oh, dulce criatura! ¿Qué designio ocultas en tu rígido cuerpo…?")
+		triggerReaccionConejo()
+
+func triggerReaccionConejo():
+	$Niebla.texture = NIEBLA_2
+	$ConejoManos/AnimationPlayer.play("subirConejo")
+	showTexto("¡Oh, dulce criatura! ¿Qué designio ocultas en tu rígido cuerpo…?")
+
+func _on_conejin_pressed():
+	$Control.visible = true
+	triggerReaccionConejo()
+	$Conejin.queue_free()

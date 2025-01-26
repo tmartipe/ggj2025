@@ -16,6 +16,6 @@ func loadText(newText: String, character: String):
 			pluma_sfx.stream = KEYS.pick_random()
 			pluma_sfx.play()
 		text += newText[i]
-		await get_tree().create_timer(0.0005).timeout
+		await get_tree().create_timer(0.05).timeout
 	textFinished.emit()
 	

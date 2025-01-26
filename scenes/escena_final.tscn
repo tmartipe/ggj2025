@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://lk3s421w472g"]
+[gd_scene load_steps=6 format=3 uid="uid://lk3s421w472g"]
 
 [ext_resource type="Script" uid="uid://ci4fnmv1bws22" path="res://scripts/controles_esceneas/escena_final.gd" id="1_66q4x"]
 [ext_resource type="Texture2D" uid="uid://blca181o0ditx" path="res://assets/escenas/nenafinal.png" id="2_tgee2"]
 [ext_resource type="Texture2D" uid="uid://q4l1kb8thtph" path="res://assets/escenas/niebla1.png" id="3_k1wgo"]
 [ext_resource type="PackedScene" uid="uid://gah3w65krhi4" path="res://scenes/interfaz_point.tscn" id="4_5nc42"]
+[ext_resource type="AudioStream" uid="uid://bfvn1kquy1eyx" path="res://audio/man-crying-3-184689.mp3" id="5_tgee2"]
 
 [node name="EscenaFinal" type="Control"]
 layout_mode = 3
@@ -32,6 +33,9 @@ texture = ExtResource("3_k1wgo")
 [node name="Control" parent="." instance=ExtResource("4_5nc42")]
 layout_mode = 1
 
+[node name="Text" parent="Control/Panel" index="0"]
+text = ""
+
 [node name="FadeBlack" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -40,3 +44,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="MenCriesSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tgee2")
+parameters/looping = true
+
+[editable path="Control"]
